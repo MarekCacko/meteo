@@ -20,7 +20,7 @@ const initialState: SliceState = {
 export const fetchWeather = createAsyncThunk('weather/fetchWeather', async () => {
   try {
     const response = await axios.get(
-      'http://api.openweathermap.org/data/2.5/weather?q=Bratislava&appid=6900582d91fe429d786b38e26007e7b9&units=metric',
+      `http://api.openweathermap.org/data/2.5/weather?q=Bratislava&appid=${process.env.REACT_APP_API_KEY}&units=metric`,
     )
     return response.data as ApiData
   } finally {
