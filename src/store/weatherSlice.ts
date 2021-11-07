@@ -7,20 +7,18 @@ import { RootState } from './store'
 
 type SliceState = {
   cities: WeatherMap
-  status: 'loading' | 'succeeded' | 'idle' | 'failed'
   error: any
 }
 
 const initialState: SliceState = {
   cities: {},
-  status: 'idle',
   error: null,
 }
 
-export const fetchWeather = createAsyncThunk('weather/fetchWeather', async () => {
+export const fetchWeather = createAsyncThunk('weather/fetchWeather', async (city: string) => {
   try {
     const response = await axios.get(
-      `http://api.openweathermap.org/data/2.5/weather?q=Bratislava&appid=${process.env.REACT_APP_API_KEY}&units=metric`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`,
     )
     return response.data as ApiData
   } finally {
@@ -34,15 +32,10 @@ const weatherSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase(fetchWeather.pending, (state, _action) => {
-        state.status = 'loading'
-      })
       .addCase(fetchWeather.fulfilled, (state, action) => {
-        state.status = 'succeeded'
         state.cities[action.payload.name] = action.payload
       })
       .addCase(fetchWeather.rejected, (state, action) => {
-        state.status = 'failed'
         state.error = action.error.message
       })
   },

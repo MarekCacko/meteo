@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { batch, useDispatch } from 'react-redux'
 
 import Location from './containers/Location/Location'
 import { fetchWeather } from './store/weatherSlice'
+import { cities } from './utils/cities'
 
 function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchWeather())
+    batch(() => {
+      cities.forEach((city) => dispatch(fetchWeather(city)))
+    })
   }, [dispatch])
 
   return (
