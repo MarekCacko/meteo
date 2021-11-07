@@ -25,7 +25,8 @@ const Location = () => {
       </div>
       <div className={styles.cities}>
         {weather
-          .filter((city) => city.name.toLowerCase().includes(debouncedFilter))
+          .filter((city) => city.name.toLowerCase().includes(debouncedFilter.toLowerCase()))
+          .sort((a, b) => a.name.localeCompare(b.name))
           .map((city) => {
             return (
               <div key={city.id} className={styles.city}>
