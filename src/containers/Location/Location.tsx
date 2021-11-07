@@ -17,7 +17,7 @@ const Location = () => {
         {Object.keys(weather).map((objectKey) => {
           const city = weather[objectKey]
           return (
-            <div>
+            <div key={city.id}>
               <div>{city.name}</div>
               <div>{Math.round(city.main.temp)}°C</div>
             </div>
