@@ -16,6 +16,7 @@ function App() {
 
   return (
     <div>
+      <div>city placeholder</div>
       <Location />
     </div>
   )

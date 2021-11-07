@@ -14,23 +14,23 @@ const Location = () => {
 
   return (
     <section className={styles.locationContainer}>
-      <header>Location</header>
-      <div>
+      <header className={styles.header}>Location</header>
+      <div className={styles.filter}>
         <input
           type="text"
-          placeholder="Search city..."
+          placeholder="Search city ..."
           defaultValue={filter}
           onChange={(e) => setFilter(e.target.value)}
         />
       </div>
-      <div>
+      <div className={styles.cities}>
         {weather
           .filter((city) => city.name.toLowerCase().includes(debouncedFilter))
           .map((city) => {
             return (
-              <div key={city.id}>
-                <div>{city.name}</div>
-                <div>{Math.round(city.main.temp)}°C</div>
+              <div key={city.id} className={styles.city}>
+                <div className={styles.name}>{city.name}</div>
+                <div className={styles.temperature}>{Math.round(city.main.temp)}°C</div>
               </div>
             )
           })}
