@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export type Coord = {
   lon: number
   lat: number
@@ -48,8 +49,4 @@ export type ApiData = {
   id: number
   name: string
   cod: number
-}
-
-export interface WeatherMap {
-  [key: string]: ApiData
 }
