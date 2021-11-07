@@ -33,7 +33,12 @@ const weatherSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchWeather.fulfilled, (state, action) => {
-        state.cities.push(action.payload)
+        const index = state.cities.findIndex((e) => e.id === action.payload.id)
+        if (index === -1) {
+          state.cities.push(action.payload)
+        } else {
+          state.cities[index] = action.payload
+        }
       })
       .addCase(fetchWeather.rejected, (state, action) => {
         state.error = action.error.message

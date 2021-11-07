@@ -74,3 +74,12 @@
   text-align: right;
   color: #666666;
 }
+
+.city:hover {
+  cursor: pointer;
+}
+
+.city:hover,
+.city:hover .temperature {
+  font-weight: 700;
+}
