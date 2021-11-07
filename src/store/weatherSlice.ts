@@ -2,16 +2,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-import { ApiData, WeatherMap } from '../types'
+import { ApiData } from '../types'
 import { RootState } from './store'
 
 type SliceState = {
-  cities: WeatherMap
+  cities: ApiData[]
   error: any
 }
 
 const initialState: SliceState = {
-  cities: {},
+  cities: [],
   error: null,
 }
 
@@ -33,7 +33,7 @@ const weatherSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchWeather.fulfilled, (state, action) => {
-        state.cities[action.payload.name] = action.payload
+        state.cities.push(action.payload)
       })
       .addCase(fetchWeather.rejected, (state, action) => {
         state.error = action.error.message
