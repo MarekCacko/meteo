@@ -33,10 +33,10 @@ const App = () => {
   }, [weather, weather.length])
 
   return (
-    <div>
+    <>
       <Weather city={currentCity} openLocation={toggle} />
       <Location changeCity={changeCity} visible={isLocationVisible} />
-    </div>
+    </>
   )
 }
 
