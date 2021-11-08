@@ -22,11 +22,20 @@ const App = () => {
 
   const dispatch = useDispatch()
 
-  useEffect(() => {
+  const fetchData = () => {
     batch(() => {
       cities.forEach((city) => dispatch(fetchWeather(city)))
     })
-  }, [dispatch])
+  }
+
+  useEffect(fetchData, [dispatch])
+
+  useEffect(() => {
+    const timer = setInterval(() => fetchData(), 15 * 60 * 1000)
+    return () => {
+      clearInterval(timer)
+    }
+  })
 
   useEffect(() => {
     if (weather.length > 0) setCurrentCity(weather[0])
