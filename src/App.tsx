@@ -10,6 +10,14 @@ import { cities } from './utils/cities'
 function App() {
   const weather = useSelector((state: RootState) => state.weather.cities)
   const [currentCity, setCurrentCity] = useState<ApiData | null>(weather.length > 0 ? weather[0] : null)
+  const [isLocationVisible, setLocationVisible] = useState(false)
+
+  const toggle = () => setLocationVisible((s) => !s)
+
+  const changeCity = (city: ApiData) => {
+    setCurrentCity(city)
+    toggle()
+  }
 
   const dispatch = useDispatch()
 
@@ -25,8 +33,10 @@ function App() {
 
   return (
     <div>
-      <div>{currentCity?.name}</div>
-      <Location changeCity={setCurrentCity} />
+      <div role="link" tabIndex={0} onClick={toggle} onKeyDown={toggle}>
+        {currentCity?.name}
+      </div>
+      <Location changeCity={changeCity} visible={isLocationVisible} />
     </div>
   )
 }
