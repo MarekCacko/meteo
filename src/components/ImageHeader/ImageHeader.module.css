@@ -1,8 +1,8 @@
 .header {
   position: relative;
-  width: 100%;
+  height: 300px;
   background: linear-gradient(180deg, #54b4f9 5.67%, #ffffff 127%);
-  aspect-ratio: 375/300;
+  width: 100%;
 }
 
 .sun {
