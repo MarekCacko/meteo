@@ -1,0 +1,26 @@
+.header {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg, #54b4f9 5.67%, #ffffff 127%);
+  aspect-ratio: 375/300;
+}
+
+.sun {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.clouds {
+  position: absolute;
+  top: 17px;
+  width: calc(100% - 34px);
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.city {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
