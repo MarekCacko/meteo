@@ -60,7 +60,7 @@ const Weather = (props: Props) => {
           description="Pressure"
           icon={Barometer}
         />
-        <MeteoInfo value={`${Math.round(city.wind.speed * 3.6)} km / h`} description="Wind" icon={Wind} />
+        <MeteoInfo value={`${Math.round(city.wind.speed * 3.6)} km/h`} description="Wind" icon={Wind} />
         <MeteoInfo value={sunTime(city.sys.sunrise)} description="Sunrise" icon={Sunrise} />
         <MeteoInfo value={sunTime(city.sys.sunset)} description="Sunset" icon={Sunset} />
         <MeteoInfo value={`${getDateTime(city.sys.sunset, city.sys.sunrise)}`} description="Daytime" icon={Clock} />
