@@ -28,3 +28,15 @@
   letter-spacing: 0.1em;
   color: #999999;
 }
+
+.icon {
+  width: 24px;
+}
+
+.shadow .icon {
+  width: 40px;
+}
+
+.shadow .value {
+  margin-top: 0;
+}
