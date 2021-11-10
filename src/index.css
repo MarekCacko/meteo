@@ -7,3 +7,9 @@ body,
 #root {
   min-height: 100%;
 }
+
+@media (min-width: 600px) {
+  #root {
+    background: #999999;
+  }
+}

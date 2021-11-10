@@ -64,3 +64,10 @@
   align-items: center;
   justify-content: center;
 }
+
+@media (min-width: 600px) {
+  .main {
+    display: flex;
+    width: 75%;
+  }
+}

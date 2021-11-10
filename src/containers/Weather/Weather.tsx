@@ -33,7 +33,7 @@ const Weather = (props: Props) => {
   })
 
   return (
-    <main>
+    <main className={styles.main}>
       <ImageHeader />
       <>
         {city && (

@@ -1,0 +1,10 @@
+@media (min-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: row-reverse;
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    min-height: 100vh;
+  }
+}
