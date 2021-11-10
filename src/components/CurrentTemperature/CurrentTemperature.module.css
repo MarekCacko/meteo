@@ -1,0 +1,22 @@
+.currentTemperature {
+  position: relative;
+}
+
+.temperature {
+  position: absolute;
+  font-weight: 300;
+  font-size: 64px;
+  line-height: 77px;
+  letter-spacing: -0.05em;
+  color: #000000;
+}
+
+.units {
+  position: absolute;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #666666;
+  letter-spacing: 1px;
+  top: 10px;
+}
