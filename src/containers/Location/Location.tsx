@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 import { RootState } from '../../store/store'
-import { ApiData } from '../../types'
 import { useDebounce } from '../../utils/useDebounce'
 import styles from './Location.module.css'
 
 interface Props {
-  changeCity: (city: ApiData) => void
+  changeCity: (city: string) => void
   visible: boolean
 }
 
@@ -42,8 +41,8 @@ const Location = (props: Props) => {
                   <div
                     key={city.id}
                     className={styles.city}
-                    onKeyDown={() => changeCity(city)}
-                    onClick={() => changeCity(city)}
+                    onKeyDown={() => changeCity(city.name)}
+                    onClick={() => changeCity(city.name)}
                     role="menuitem"
                     tabIndex={0}
                   >

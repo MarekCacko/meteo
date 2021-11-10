@@ -85,7 +85,7 @@
   .locationContainer {
     position: relative;
     box-shadow: none;
-    border-radius: none;
+    border-radius: 0;
     width: 200px;
     height: auto;
     justify-items: flex-start;
@@ -95,5 +95,10 @@
 
   .filter {
     margin: 0;
+  }
+
+  .cities {
+    width: 100%;
+    margin: 10px 0px;
   }
 }
